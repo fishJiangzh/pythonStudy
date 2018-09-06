@@ -46,7 +46,7 @@ class commontool():
         print('start request...')
         driver = webdriver.Chrome('G:\chromedriver_win32\chromedriver.exe')
         driver.get(self.url)
-        self.scroll_down(driver=driver,times=4)
+        self.scroll_down(driver=driver,times=2)
         all_a = BeautifulSoup(driver.page_source,'lxml').find_all('img',class_='_2zEKz')
         self.mkdir(self.folder_path)
         os.chdir(self.folder_path)
