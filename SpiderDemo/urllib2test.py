@@ -3,9 +3,26 @@
 # @author:Jiangzh
 
 import urllib.request
+import random
+from getProxylist import Proxy
 
-httpproxy_handler = urllib.request.ProxyHandler({"HTTP": "111.40.84.73:9999"})
+p = Proxy()
+pro = p.getProxylist()
+print(pro)
+# proxy_list = [{"HTTP": "183.154.215.78:9000"},
+#               {"HTTP": "180.118.134.103:9000"},
+#               {"HTTP": "114.235.22.251:9000"},
+#               {"HTTP": "115.223.210.203:9000"},
+#               {"HTTP": "223.150.39.128:9000"},
+#               {"HTTP": "180.118.128.138:9000"}]
+
+proxy = random.choice(pro)
+print(proxy)
+httpproxy_handler = urllib.request.ProxyHandler(proxy)
 nullproxy_handler = urllib.request.ProxyHandler({})
+
+# # 构建具有一个私密代理IP的Handler，其中user为账户，passwd为密码
+# httpproxy_handler = urllib.request.ProxyHandler({"http" : "user：passwd@124.88.67.81:80"})
 
 proxySwitch = True
 
@@ -23,5 +40,5 @@ response = opener.open(request)
 # urllib2.install_opener(opener)
 # response = urlopen(request)
 
-print(response.read())
+# print(response.read())
 print("complete")

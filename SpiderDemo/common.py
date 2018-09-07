@@ -22,7 +22,6 @@ class commontool():
 
     def request_Picture(self, url):
         r = requests.get(url, headers=self.headers)
-        print(r)
         return r
 
     def mkdir(self, path):
