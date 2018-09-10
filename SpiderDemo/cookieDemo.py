@@ -38,21 +38,22 @@ cookie_handler = urllib.request.HTTPCookieProcessor(cookie)
 
 opener = urllib.request.build_opener(cookie_handler)
 
-opener.addheaders = [{
-"user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36"
-}]
+opener.addheaders = [('User-Agent','Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36')]
+
 
 data = {"email":"jiangzhihuai9420@163.com","password":"jzh881123"}
 
 postdata = urllib.parse.urlencode(data).encode(encoding='UTF8')
 
-request = urllib.request.Request("http://www.renren.com/SysHome.do",data=postdata)
+print(postdata)
+
+request = urllib.request.Request("http://www.renren.com/PLogin.do",data=postdata)
 
 opener.open(request)
 
 req = opener.open("http://www.renren.com/410049765/profile")
 
 print(req.read())
-
+print("complete!")
 
 
