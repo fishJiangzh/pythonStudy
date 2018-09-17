@@ -32,7 +32,7 @@ class FilmspiderSpider(scrapy.Spider):
 
             yield item
 
-        if self.offset<60:
+        if self.offset<61:
             self.offset += 25
             yield scrapy.Request(url=self.url+str(self.offset),callback=self.parse)
 
