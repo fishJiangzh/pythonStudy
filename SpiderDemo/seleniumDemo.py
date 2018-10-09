@@ -11,7 +11,7 @@ driver = webdriver.Chrome('G:\chromedriver_win32\chromedriver.exe')
 driver.get('http://www.renren.com')
 
 driver.find_element_by_name('email').send_keys('jiangzhihuai9420@163.com')
-driver.find_element_by_name('password').send_keys('')
+driver.find_element_by_name('password').send_keys('1')
 
 
 driver.find_element_by_id('login').click()
